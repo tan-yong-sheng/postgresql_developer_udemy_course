@@ -37,7 +37,7 @@ Table likes {
   id SERIAL [pk, increment]
   created_at TIMESTAMP
   user_id INTEGER [ref: > users.id]
-  commend_id INTEGER [ref: > comments.id] 
+  comment_id INTEGER [ref: > comments.id] 
 }
 
 Table followers {
@@ -53,6 +53,9 @@ Table photo_tags {
   user_id INTEGER [ref: > users.id]
   comment_id INTEGER [ref: > comments.id]
   post_id INTEGER [ref: > posts.id]
+
+  Note: 
+  '''user_id + comment_id + post_id = 1'''
 }
 
 Table caption_tags {
